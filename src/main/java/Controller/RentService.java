@@ -17,11 +17,7 @@ import java.util.List;
  *
  * @author lenovo
  */
-public class RentService {
-    
-    private String ms_result;    
-
-    
+public class RentService {    
     
     public List<Double> calculateRents(List<Rental> plst_rents){  
         
