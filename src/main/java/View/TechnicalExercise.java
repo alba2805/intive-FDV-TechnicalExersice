@@ -38,13 +38,15 @@ public class TechnicalExercise {
         
         List<Rental> llst_rents = new ArrayList<>();//I do not define the type of the list in the ArrayList<> to be able to pass any of their child class
         
-        llst_rents.add(lcl_rentPerHour1);
-        llst_rents.add(lcl_rentPerHour2);
+       // llst_rents.add(lcl_rentPerHour1);
+      //  llst_rents.add(lcl_rentPerHour2);
         llst_rents.add(lcl_rentPerDay);
         llst_rents.add(lcl_rentPerWeek);
         
         RentService lcl_rentService = new RentService();
-        lcl_rentService.calculateRents(llst_rents);
+        lcl_rentService.calculateRents(llst_rents).stream().forEach(x -> {
+            System.out.println(x);
+        });
     }
     
 }

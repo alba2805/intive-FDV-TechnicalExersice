@@ -10,6 +10,7 @@ import Model.RentPerDay;
 import Model.RentPerHour;
 import Model.RentPerWeek;
 import Model.Rental;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,27 +19,34 @@ import java.util.List;
  */
 public class RentService {
     
+    private String ms_result;    
+
     
-    public void calculateRents(List<Rental> plst_rents){  
+    
+    public List<Double> calculateRents(List<Rental> plst_rents){  
+        
+        List<Double> llst_prices = new ArrayList<>();
         
         if(plst_rents.size() >= 3 && plst_rents.size() <= 5){
             // it's a FamilyRental
             FamilyRental lcl_familyRental = new FamilyRental();
             
-            System.out.println("the cost for the family rental is: $" + lcl_familyRental.calculateFamiilyRental(plst_rents));
+            llst_prices.add(lcl_familyRental.calculateFamilyRental(plst_rents));
         
         }else{
             // it's not a FamilyRental. I analyze each of the rents separately   
             plst_rents.stream().forEach(x -> {
                 if(x.getMi_costo() == 5)
-                    System.out.println("Rent $5 per hour, " + x.getMi_unit() + " hours: cost $" + x.calculateRent());
+                    llst_prices.add(x.calculateRent() * 1.00);
                 
                 if(x.getMi_costo() == 20)
-                    System.out.println("Rent $20 per day, " + x.getMi_unit() + " days: cost $" + x.calculateRent());
+                    llst_prices.add(x.calculateRent() * 1.00);
                 
                 if(x.getMi_costo() == 60)
-                    System.out.println("Rent $60 per week, " + x.getMi_unit() + " weeks: cost $" + x.calculateRent());                
+                    llst_prices.add(x.calculateRent() * 1.00);                
             });        
-        }    
+        } 
+        
+        return llst_prices;
     }    
 }

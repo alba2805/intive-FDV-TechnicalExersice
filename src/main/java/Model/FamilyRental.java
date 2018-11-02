@@ -16,7 +16,7 @@ public class FamilyRental {
     
     private int mi_sum;
 
-    public double calculateFamiilyRental(List<Rental> plst_rents){
+    public double calculateFamilyRental(List<Rental> plst_rents){
         
         plst_rents.stream().forEach(x -> {
                                  this.mi_sum = this.mi_sum + x.calculateRent();
