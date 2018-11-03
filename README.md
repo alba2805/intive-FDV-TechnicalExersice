@@ -1,5 +1,5 @@
-# intive-FDV-TechnicalExersice
-TechnicalExersice for intive-FDV
+# intive-FDV-TechnicalExercise
+TechnicalExercise for intive-FDV
 
 -------------------------Description of the project design.---------------------------------
 An MVC pattern was followed, so the packages are: Controller, Model and View.
